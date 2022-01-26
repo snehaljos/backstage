@@ -254,6 +254,7 @@ export const createOidcProvider = (
     globalConfig,
     config,
     tokenIssuer,
+    tokenManager,
     catalogApi,
     logger,
   }) =>
@@ -269,7 +270,7 @@ export const createOidcProvider = (
       const prompt = envConfig.getOptionalString('prompt');
       const catalogIdentityClient = new CatalogIdentityClient({
         catalogApi,
-        tokenIssuer,
+        tokenManager,
       });
 
       const authHandler: AuthHandler<OidcAuthResult> = options?.authHandler
